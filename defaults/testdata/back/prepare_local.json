@@ -1,0 +1,68 @@
+{
+ "ver": 1,
+ "args": {
+  "build_dir": "build"
+ },
+ "commands": [
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/back/bin"
+  },
+  {
+   "Msg": "Uploading vm by rsync",
+   "Type": 1,
+   "Args": [
+    "build",
+    "bin/vm"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Uploading vmctl by rsync",
+   "Type": 1,
+   "Args": [
+    "build",
+    "bin/vmctl"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Uploading vmdbfixer by rsync",
+   "Type": 1,
+   "Args": [
+    "build",
+    "bin/vmdbfixer"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Uploading etc by rsync",
+   "Type": 1,
+   "Args": [
+    "build",
+    "etc/"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Uploading scripts by rsync",
+   "Type": 1,
+   "Args": [
+    "",
+    "scripts/"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Uploading python_packages by rsync",
+   "Type": 1,
+   "Args": [
+    "",
+    "python_packages/"
+   ],
+   "Data": ""
+  }
+ ]
+}

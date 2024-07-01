@@ -1,0 +1,27 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/ifacewatch/bin"
+  },
+  {
+   "Msg": "Uploading ifacewatch by rsync",
+   "Type": 1,
+   "Args": [
+    "",
+    "ifacewatch"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Moving ifacewatch to bin dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mv /tmp/update_dir/ifacewatch/ifacewatch /tmp/update_dir/ifacewatch/bin"
+  }
+ ]
+}

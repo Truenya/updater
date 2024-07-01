@@ -1,0 +1,87 @@
+{
+ "ver": 1,
+ "args": {
+  "branch": "master",
+  "container_name": "back_update"
+ },
+ "commands": [
+  {
+   "Msg": "Removing dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "rm -rf /tmp/update_dir/back/*"
+  },
+  {
+   "Msg": "Deleting container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "defer"
+   ],
+   "Data": "docker rm %s"
+  },
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/back/bin"
+  },
+  {
+   "Msg": "Pulling image",
+   "Type": 0,
+   "Args": [
+    "branch"
+   ],
+   "Data": "docker pull registry-dev.ispsystem.net/team/vm/back:%s"
+  },
+  {
+   "Msg": "Creating container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "branch"
+   ],
+   "Data": "docker create --name %s registry-dev.ispsystem.net/team/vm/back:%s sh"
+  },
+  {
+   "Msg": "Copying python packages",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker cp %s:/python_packages /tmp/update_dir/back"
+  },
+  {
+   "Msg": "Copying other",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker cp %s:/opt/ispsystem/vm/ /tmp/update_dir/back"
+  },
+  {
+   "Msg": "Moving etc",
+   "Type": 0,
+   "Args": null,
+   "Data": "mv /tmp/update_dir/back/vm/etc/ /tmp/update_dir/back/."
+  },
+  {
+   "Msg": "Moving bins",
+   "Type": 0,
+   "Args": null,
+   "Data": "mv /tmp/update_dir/back/vm/bin/ /tmp/update_dir/back/."
+  },
+  {
+   "Msg": "Moving scripts",
+   "Type": 0,
+   "Args": null,
+   "Data": "mv /tmp/update_dir/back/vm/scripts/ /tmp/update_dir/back/."
+  },
+  {
+   "Msg": "Copying libs",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker cp /tmp/update_dir/back/vm/lib/ vm_box:/opt/ispsystem/vm"
+  }
+ ]
+}

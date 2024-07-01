@@ -1,0 +1,24 @@
+{
+ "ver": 1,
+ "args": {
+  "container_name": "vm_box"
+ },
+ "commands": [
+  {
+   "Msg": "Rereading supervisor configs",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker exec %s supervisorctl reread"
+  },
+  {
+   "Msg": "Update supervisor configs",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker exec %s supervisorctl update"
+  }
+ ]
+}

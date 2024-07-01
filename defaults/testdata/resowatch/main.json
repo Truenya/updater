@@ -1,0 +1,18 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Copying bin",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker cp /tmp/update_dir/resowatch/bin/ vm_box:/opt/ispsystem/resowatch"
+  },
+  {
+   "Msg": "Restarting resowatch",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker exec vm_box supervisorctl restart resowatch"
+  }
+ ]
+}

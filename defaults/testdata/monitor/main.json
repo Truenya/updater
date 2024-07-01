@@ -1,0 +1,36 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Copying bin",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker cp /tmp/update_dir/monitor/bin/ vm_box:/opt/ispsystem/monitor"
+  },
+  {
+   "Msg": "Copying etc",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker cp /tmp/update_dir/monitor/etc/ vm_box:/opt/ispsystem/monitor"
+  },
+  {
+   "Msg": "Copying supervisorctl",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker cp /tmp/update_dir/monitor/supervisord.conf.d/ vm_box:/etc/"
+  },
+  {
+   "Msg": "",
+   "Type": 3,
+   "Args": null,
+   "Data": "supervisorctl_stuff"
+  },
+  {
+   "Msg": "Restarting monitor",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker exec vm_box supervisorctl restart monitor"
+  }
+ ]
+}

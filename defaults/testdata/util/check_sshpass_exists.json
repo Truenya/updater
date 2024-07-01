@@ -1,0 +1,12 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Checking sshpass exists on local",
+   "Type": 2,
+   "Args": null,
+   "Data": "which sshpass"
+  }
+ ]
+}

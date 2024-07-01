@@ -1,0 +1,18 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Copying bin",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker cp /tmp/update_dir/ifacewatch/bin/ vm_box:/opt/ispsystem/ifacewatch"
+  },
+  {
+   "Msg": "Restarting ifacewatch",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker exec vm_box supervisorctl restart ifacewatch"
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Checking rsync exists on local",
+   "Type": 2,
+   "Args": null,
+   "Data": "which rsync"
+  },
+  {
+   "Msg": "Checking rsync exists on remote",
+   "Type": 0,
+   "Args": null,
+   "Data": "which rsync"
+  }
+ ]
+}

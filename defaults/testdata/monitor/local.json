@@ -1,0 +1,18 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "",
+   "Type": 3,
+   "Args": null,
+   "Data": "monitor_prepare_local"
+  },
+  {
+   "Msg": "",
+   "Type": 3,
+   "Args": null,
+   "Data": "monitor_main"
+  }
+ ]
+}

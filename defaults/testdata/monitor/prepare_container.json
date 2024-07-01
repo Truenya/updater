@@ -1,0 +1,63 @@
+{
+ "ver": 1,
+ "args": {
+  "branch": "master",
+  "container_name": "monitor_update"
+ },
+ "commands": [
+  {
+   "Msg": "Removing dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "rm -rf /tmp/update_dir/monitor/*"
+  },
+  {
+   "Msg": "Deleting container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "defer"
+   ],
+   "Data": "docker rm %s"
+  },
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/monitor/bin"
+  },
+  {
+   "Msg": "Pulling containter",
+   "Type": 0,
+   "Args": [
+    "branch"
+   ],
+   "Data": "docker pull registry-dev.ispsystem.net/team/vm/monitor:%s"
+  },
+  {
+   "Msg": "Creating container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "branch"
+   ],
+   "Data": "docker create --name %s registry-dev.ispsystem.net/team/vm/monitor:%s sh"
+  },
+  {
+   "Msg": "Copying data",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker cp %s:/monitor/ /tmp/update_dir/"
+  },
+  {
+   "Msg": "Copying supervisord",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker cp %s:/etc/supervisord.conf.d/ /tmp/update_dir/monitor"
+  }
+ ]
+}

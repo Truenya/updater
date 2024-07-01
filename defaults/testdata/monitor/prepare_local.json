@@ -1,0 +1,45 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/monitor/bin"
+  },
+  {
+   "Msg": "Uploading monitor by rsync",
+   "Type": 1,
+   "Args": [
+    "",
+    "monitor"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Moving monitor to bin dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mv /tmp/update_dir/monitor/monitor /tmp/update_dir/monitor/bin"
+  },
+  {
+   "Msg": "Uploading etc by rsync",
+   "Type": 1,
+   "Args": [
+    "",
+    "etc/"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Uploading supervisoctl conf by rsync",
+   "Type": 1,
+   "Args": [
+    "",
+    "supervisord.conf.d/"
+   ],
+   "Data": ""
+  }
+ ]
+}

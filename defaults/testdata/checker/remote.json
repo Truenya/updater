@@ -1,0 +1,18 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "",
+   "Type": 3,
+   "Args": null,
+   "Data": "checker_prepare_container"
+  },
+  {
+   "Msg": "",
+   "Type": 3,
+   "Args": null,
+   "Data": "checker_main"
+  }
+ ]
+}

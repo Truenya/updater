@@ -1,0 +1,49 @@
+{
+ "ver": 1,
+ "args": {
+  "branch": "master",
+  "container_name": "ifacewatch_update"
+ },
+ "commands": [
+  {
+   "Msg": "Deleting container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "defer"
+   ],
+   "Data": "docker rm %s"
+  },
+  {
+   "Msg": "Removing dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "rm -rf /tmp/update_dir/ifacewatch/*"
+  },
+  {
+   "Msg": "Pulling containter",
+   "Type": 0,
+   "Args": [
+    "branch"
+   ],
+   "Data": "docker pull registry-dev.ispsystem.net/team/vm/ifacewatch:%s"
+  },
+  {
+   "Msg": "Creating container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "branch"
+   ],
+   "Data": "docker create --name %s registry-dev.ispsystem.net/team/vm/ifacewatch:%s sh"
+  },
+  {
+   "Msg": "Copying bin",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker cp %s:/bin /tmp/update_dir/ifacewatch"
+  }
+ ]
+}

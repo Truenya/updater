@@ -1,0 +1,54 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Copying binaries",
+   "Type": 2,
+   "Args": [
+    "project_dir",
+    "build_dir"
+   ],
+   "Data": "docker cp %s/%s/bin/ vm_box:/opt/ispsystem/vm/"
+  },
+  {
+   "Msg": "Copying scripts",
+   "Type": 2,
+   "Args": [
+    "project_dir"
+   ],
+   "Data": "docker cp %s/scripts/ vm_box:/opt/ispsystem/vm/"
+  },
+  {
+   "Msg": "Chmoding scripts",
+   "Type": 2,
+   "Args": null,
+   "Data": "docker exec vm_box bash -c 'chmod +x /opt/ispsystem/vm/scripts/*.py \u0026\u0026 chmod +x /opt/ispsystem/vm/scripts/*/*.py'"
+  },
+  {
+   "Msg": "Copying api, etc",
+   "Type": 2,
+   "Args": [
+    "project_dir",
+    "build_dir"
+   ],
+   "Data": "docker cp %s/%s/etc/ vm_box:/opt/ispsystem/vm"
+  },
+  {
+   "Msg": "Copying python python packages",
+   "Type": 2,
+   "Args": [
+    "project_dir",
+    "project_dir",
+    "project_dir"
+   ],
+   "Data": "bash -c 'for PACK in $(ls %s/python_packages); do _PACK=%s/python_packages/${PACK}/${PACK}; if [ -d ${_PACK} ]; then docker cp %s/python_packages/${PACK}/${PACK} vm_box:/usr/local/lib/python3.9/site-packages/; fi; done'"
+  },
+  {
+   "Msg": "Restarting",
+   "Type": 2,
+   "Args": null,
+   "Data": "docker exec vm_box supervisorctl restart vm_reader vm_writer"
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "ver": 1,
+ "args": {
+  "branch": "master",
+  "container_name": "checker_update"
+ },
+ "commands": [
+  {
+   "Msg": "Deleting container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "defer"
+   ],
+   "Data": "docker rm %s"
+  },
+  {
+   "Msg": "Removing dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "rm -rf /tmp/update_dir/checker/*"
+  },
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/checker/bin"
+  },
+  {
+   "Msg": "Pulling containter",
+   "Type": 0,
+   "Args": [
+    "branch"
+   ],
+   "Data": "docker pull registry-dev.ispsystem.net/team/vm/checker:%s"
+  },
+  {
+   "Msg": "Creating container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "branch"
+   ],
+   "Data": "docker create --name %s registry-dev.ispsystem.net/team/vm/checker:%s sh"
+  },
+  {
+   "Msg": "Copying bin",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker cp %s:/checker /tmp/update_dir/checker/bin/"
+  }
+ ]
+}

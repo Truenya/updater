@@ -1,0 +1,18 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Copying bin",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker cp /tmp/update_dir/checker/bin/ vm_box:/opt/ispsystem/checker"
+  },
+  {
+   "Msg": "Restarting checker",
+   "Type": 0,
+   "Args": null,
+   "Data": "docker exec vm_box supervisorctl restart checker"
+  }
+ ]
+}

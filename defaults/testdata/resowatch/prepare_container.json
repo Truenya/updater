@@ -1,0 +1,55 @@
+{
+ "ver": 1,
+ "args": {
+  "branch": "master",
+  "container_name": "resowatch_update"
+ },
+ "commands": [
+  {
+   "Msg": "Deleting container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "defer"
+   ],
+   "Data": "docker rm %s"
+  },
+  {
+   "Msg": "Removing dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "rm -rf /tmp/update_dir/resowatch/*"
+  },
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/resowatch/bin"
+  },
+  {
+   "Msg": "Pulling containter",
+   "Type": 0,
+   "Args": [
+    "branch"
+   ],
+   "Data": "docker pull registry-dev.ispsystem.net/team/vm/resowatch:%s"
+  },
+  {
+   "Msg": "Creating container",
+   "Type": 0,
+   "Args": [
+    "container_name",
+    "branch"
+   ],
+   "Data": "docker create --name %s registry-dev.ispsystem.net/team/vm/resowatch:%s sh"
+  },
+  {
+   "Msg": "Copying data",
+   "Type": 0,
+   "Args": [
+    "container_name"
+   ],
+   "Data": "docker cp %s:/resowatch/ /tmp/update_dir/"
+  }
+ ]
+}

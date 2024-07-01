@@ -1,0 +1,27 @@
+{
+ "ver": 1,
+ "args": null,
+ "commands": [
+  {
+   "Msg": "Creating dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mkdir -p /tmp/update_dir/checker/bin"
+  },
+  {
+   "Msg": "Uploading checker by rsync",
+   "Type": 1,
+   "Args": [
+    "",
+    "checker"
+   ],
+   "Data": ""
+  },
+  {
+   "Msg": "Moving checker to bin dir",
+   "Type": 0,
+   "Args": null,
+   "Data": "mv /tmp/update_dir/checker/checker /tmp/update_dir/checker/bin"
+  }
+ ]
+}
